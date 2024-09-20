@@ -29,7 +29,7 @@ document.getElementById('register-button').addEventListener('click', async funct
      
         localStorage.setItem('userNum',num);
         localStorage.setItem('userPass' , pin);
-        window.location.href = '../index.html';
+        window.location.href = './index.html';
         alert("done");
 
     } catch (error) {
