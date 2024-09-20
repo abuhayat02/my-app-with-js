@@ -24,6 +24,8 @@ document.getElementById('login-button').addEventListener('click', async function
   if(mactchInfo.empty){
     alert('please enter correct information')
   }else{
+    localStorage.setItem('userPass',num);
+    localStorage.setItem('userNum' , pin);
     window.location.href = './index.html';
   }
 

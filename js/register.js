@@ -26,6 +26,9 @@ document.getElementById('register-button').addEventListener('click', async funct
             number: num,
             pass: pin,
         });
+     
+        localStorage.setItem('userNum',num);
+        localStorage.setItem('userPass' , pin);
         window.location.href = '../index.html';
         alert("done");
 

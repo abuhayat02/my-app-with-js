@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>home</title>
 </head>
 <body>
+<div class="flex w-96 m-auto my-5 flex-col text-2xl font-bold">
+    
+    <h1 class="" id="my_number">
 
-    <h1>Wow !</h1>
+    </h1>
+    <h2 class="" id="my_password">
 
+    </h2>
+</div>
+
+    <script>
+    
+        function helloUsers (){
+            document.getElementById('my_number').innerText = 'NUMBER : ' + localStorage.getItem('userNum')
+            document.getElementById('my_password').innerText = 'PASSWORD : ' + localStorage.getItem('userPass')
+        }
+        
+        helloUsers()
+    </script>
 
 </body>
 </html>
