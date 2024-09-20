@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f0f4f8;
+    }
+  </style>
+</head>
+
+<body class="h-screen flex items-center justify-center bg-gray-100">
+
+  <div class="w-full max-w-sm p-6 bg-white rounded-lg  shadow-lg">
+    <!-- Logo -->
+    <div class="flex justify-center ">
+      <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="50" fill="#f1f3f6" />
+        <path d="M50 5c24.852 0 45 20.148 45 45s-20.148 45-45 45-45-20.148-45-45 20.148-45 45-45z" fill="#e3e9f2" />
+        <path d="M50 20c16.54 0 30 13.46 30 30s-13.46 30-30 30-30-13.46-30-30 13.46-30 30-30z" fill="white" />
+        <path d="M38 54l6-6 6 6 8-8 6 6 6-6-8-8-6 6-6-6-6 6-6-6-8 8 6 6z" fill="#1e90ff" />
+      </svg>
+    </div>
+
+    <!-- Form -->
+    <form>
+      <!-- Mobile Number -->
+      <div class="mb-4">
+        <label for="number" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+        <input id="number" type="number" placeholder="Enter your number"
+          class="w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- 4 Digit Pin -->
+      <div class="mb-6">
+        <label for="pin" class="block text-sm font-medium text-gray-700">4 Digit Pin</label>
+        <input id="pin" type="password" placeholder="Enter 4 Digit Pin" maxlength="4"
+          class="w-full mt-1 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Buttons (Login & Register) -->
+      <div class="flex justify-between flex-col">
+        <button id="login-button" type="button"
+          class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+        <a href="./register.html" type="button"
+          class="w-full text-blue-700 cursor-pointer text-center mt-2">Please Register</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="./js/login.js" type="module"></script>
+</body>
+
+</html>
