@@ -7,24 +7,83 @@
     <title>home</title>
 </head>
 <body>
-<div class="flex w-96 m-auto my-5 flex-col text-2xl font-bold">
+<div class="flex w-96 m-auto mt-8 flex-col text-2xl font-bold">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+   
+    <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Transaction</h2>
+    <h1 class="text-center"> <span id="balance" class="text-center" ></span> $</h1>
+
+    <form>
+      <div class="mb-4 mt-14">
+        <input type="number" id="amount" name="amount" placeholder="Enter amount" class="w-full px-4 py-1 border border-gray-300 rounded-sm text-xl focus:ring-2 focus:ring-blue-400 focus:outline-none">
+        <input type="number" id="passkey" name="passsword" placeholder="Enter password" class="w-full px-4 py-1 my-2 border border-gray-300 text-xl rounded-sm focus:ring-2 focus:ring-blue-400 focus:outline-none">
+      </div>
+      <hr class="my-5">
     
-    <h1 class="" id="my_number">
+      <div class="flex justify-between">
+        <button id="addMany" type="button" class="bg-green-500 text-sm text-white py-2 px-4 rounded-sm font-semibold hover:bg-green-600 transition duration-300">Add Money</button>
 
-    </h1>
-    <h2 class="" id="my_password">
 
-    </h2>
+        <button id="sendMany" type="button" class="bg-red-500  text-sm  text-white py-2 px-4 rounded-sm font-semibold hover:bg-red-600 transition duration-300">Cash Out</button>
+      </div>
+    </form>
+  </div>
+   
 </div>
 
     <script>
-    
-        function helloUsers (){
-            document.getElementById('my_number').innerText = 'NUMBER : ' + localStorage.getItem('userNum')
-            document.getElementById('my_password').innerText = 'PASSWORD : ' + localStorage.getItem('userPass')
+        let amount = document.getElementById("amount");
+        let balanceAdd = document.getElementById("balance");
+        let password = document.getElementById("passkey");
+        let add = document.getElementById('addMany');
+        let sent = document.getElementById('sendMany');
+        let userPass = localStorage.getItem('userPass')
+        let mainBalance = localStorage.getItem('balance') || 0;
+
+        balanceAdd.innerText = mainBalance;
+
+
+        sent.addEventListener('click', function (event){
+        event.preventDefault();
+        if (userPass && userPass === password.value  && mainBalance >= 0 && amount.value > mainBalance) {
+            let currentBalance = parseInt(balanceAdd.innerText || 0) ;
+           let myBalance =  currentBalance - parseInt(amount.value || 0) ;
+           localStorage.setItem("balance",myBalance)
+
+
+           balanceAdd.innerText = myBalance;
+           document.getElementById("amount").value = '';
+           document.getElementById("passkey").value = '';
+        } else {
+            alert('Invalid password');
         }
+    });
+
+    
+
+    add.addEventListener('click', function (event){
+        event.preventDefault();
+        if (userPass && userPass === password.value ) {
+            let currentBalance = parseInt(balanceAdd.innerText || 0) ;
+           let myBalance =  currentBalance + parseInt(amount.value || 0) ;
+           localStorage.setItem("balance",myBalance)
+
+
+           balanceAdd.innerText = myBalance;
+           document.getElementById("amount").value = '';
+           document.getElementById("passkey").value = '';
+        } else {
+            alert('Invalid password');
+        }
+    });
+
+    
+        // function helloUsers (){
+        //     document.getElementById('my_number').innerText = 'NUMBER : ' + localStorage.getItem('userNum')
+        //     document.getElementById('my_password').innerText = 'PASSWORD : ' + localStorage.getItem('userPass')
+        // }
         
-        helloUsers()
+        // helloUsers()
     </script>
 
 </body>
