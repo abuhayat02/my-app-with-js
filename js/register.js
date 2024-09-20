@@ -29,8 +29,9 @@ document.getElementById('register-button').addEventListener('click', async funct
      
         localStorage.setItem('userNum',num);
         localStorage.setItem('userPass' , pin);
-        window.location.href = './index.html';
         alert("done");
+        window.location.href = './index.html';
+       
 
     } catch (error) {
         alert("somting wrong")
